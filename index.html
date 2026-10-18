@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro Correa | Desarrollador</title>
+    <!-- Fuente e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variables de color (Puedes cambiarlas si quieres) */
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #e2e8f0;
+            --primary-color: #38bdf8;
+            --card-bg: #1e293b;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Barra de navegación */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--primary-color); }
+
+        /* Secciones */
+        section { padding: 100px 10% 50px 10%; min-height: 100vh; }
+        
+        /* Hero (Inicio) */
+        .hero { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero h1 span { color: var(--primary-color); }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; color: #94a3b8; }
+        
+        .social-links { display: flex; gap: 15px; font-size: 1.5rem; }
+        .social-links a { color: var(--text-color); transition: color 0.3s, transform 0.3s; }
+        .social-links a:hover { color: var(--primary-color); transform: translateY(-3px); }
+
+        /* Proyectos */
+        h2 { font-size: 2.5rem; margin-bottom: 40px; border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 5px; }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 180px;
+            background-color: #334155;
+            object-fit: cover;
+        }
+
+        .project-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-info h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .project-info p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        
+        .project-links { display: flex; gap: 15px; margin-top: auto; }
+        .project-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .project-links a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer { text-align: center; padding: 30px; background-color: var(--card-bg); color: #94a3b8; font-size: 0.9rem; }
+
+        /* Responsive para celulares */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 15px; padding: 15px; }
+            .hero h1 { font-size: 2.5rem; }
+            section { padding: 120px 5% 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="logo">AC.</div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="hero">
+        <h1>Hola, soy <span>Alejandro Correa</span></h1>
+        <p>Desarrollador apasionado por crear soluciones web funcionales y experiencias de usuario limpias. Construyendo proyectos que resuelven problemas reales.</p>
+        
+        <div class="social-links">
+            <a href="https://github.com/Alejandro-correa10" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:contacto@ejemplo.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos">
+        <h2>Mis Proyectos</h2>
+        
+        <div class="projects-grid">
+            
+            <!-- ========================================== -->
+            <!-- COPIA ESTE BLOQUE PARA AGREGAR UN PROYECTO -->
+            <!-- ========================================== -->
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=Proyecto+1" alt="Proyecto 1" class="project-img">
+                <div class="project-info">
+                    <h3>Nombre del Proyecto 1</h3>
+                    <p>Una breve descripción de qué hace este proyecto, qué problema resuelve y qué tecnologías usaste.</p>
+                    <div class="project-links">
+                        <a href="https://tu-dominio-proyecto1.com" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="https://github.com/Alejandro-correa10/repo1" target="_blank"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+            <!-- ========================================== -->
+            
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=Proyecto+2" alt="Proyecto 2" class="project-img">
+                <div class="project-info">
+                    <h3>Nombre del Proyecto 2</h3>
+                    <p>Descripción del segundo proyecto. Destaca las funcionalidades clave y el stack tecnológico empleado.</p>
+                    <div class="project-links">
+                        <a href="https://tu-dominio-proyecto2.com" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="https://github.com/Alejandro-correa10/repo2" target="_blank"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agrega más bloques <div class="project-card"> aquí abajo -->
+
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" style="min-height: auto; text-align: center;">
+        <h2>Contacto</h2>
+        <p style="margin-bottom: 20px;">¿Tienes un proyecto en mente o quieres colaborar? ¡Hablemos!</p>
+        <a href="mailto:contacto@ejemplo.com" style="background-color: var(--primary-color); color: var(--bg-color); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">Enviar un correo</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Alejandro Correa. Desplegado con GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
