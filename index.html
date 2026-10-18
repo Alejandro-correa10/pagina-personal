@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alejandro Correa | Desarrollador</title>
+    <title>Alejandro Correa | Ingeniero de Sistemas</title>
     <!-- Fuente e Iconos -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Variables de color (Puedes cambiarlas si quieres) */
         :root {
             --bg-color: #0f172a;
             --text-color: #e2e8f0;
             --primary-color: #38bdf8;
+            --secondary-color: #818cf8;
             --card-bg: #1e293b;
+            --text-muted: #94a3b8;
         }
 
         * {
@@ -31,44 +32,71 @@
             line-height: 1.6;
         }
 
-        /* Barra de navegación */
+        /* Navegación */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 10%;
-            background-color: rgba(15, 23, 42, 0.9);
+            background-color: rgba(15, 23, 42, 0.95);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 600; transition: color 0.3s; font-size: 0.95rem;}
         nav ul li a:hover { color: var(--primary-color); }
 
         /* Secciones */
-        section { padding: 100px 10% 50px 10%; min-height: 100vh; }
+        section { padding: 120px 10% 60px 10%; min-height: 100vh; }
         
-        /* Hero (Inicio) */
+        /* Hero */
         .hero { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.1; }
         .hero h1 span { color: var(--primary-color); }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; color: #94a3b8; }
+        .hero h2 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 20px; font-weight: 600; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin-bottom: 30px; color: var(--text-muted); }
         
-        .social-links { display: flex; gap: 15px; font-size: 1.5rem; }
+        .social-links { display: flex; gap: 20px; font-size: 1.5rem; }
         .social-links a { color: var(--text-color); transition: color 0.3s, transform 0.3s; }
         .social-links a:hover { color: var(--primary-color); transform: translateY(-3px); }
 
+        /* Títulos de sección */
+        .section-title { font-size: 2.2rem; margin-bottom: 40px; position: relative; display: inline-block; }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        /* Habilidades */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; }
+        .skill-badge {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: all 0.3s;
+        }
+        .skill-badge:hover { background-color: var(--primary-color); color: var(--bg-color); }
+
         /* Proyectos */
-        h2 { font-size: 2.5rem; margin-bottom: 40px; border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 5px; }
-        
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
         }
 
@@ -79,44 +107,86 @@
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(56, 189, 248, 0.3);
         }
 
         .project-img {
             width: 100%;
             height: 180px;
-            background-color: #334155;
-            object-fit: cover;
+            background: linear-gradient(45deg, #1e293b, #0f172a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
         }
 
-        .project-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .project-info h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .project-info p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        .project-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-info h3 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
+        .project-info p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
         
         .project-links { display: flex; gap: 15px; margin-top: auto; }
         .project-links a {
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--bg-color);
+            background-color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 6px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            transition: background 0.3s;
         }
-        .project-links a:hover { text-decoration: underline; }
+        .project-links a:hover { background-color: #7dd3fc; }
+        .project-links a.github-btn { background-color: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); }
+        .project-links a.github-btn:hover { background-color: rgba(56, 189, 248, 0.1); }
+
+        /* Experiencia y Educación */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after {
+            content: ''; position: absolute; width: 2px; background: var(--card-bg);
+            top: 0; bottom: 0; left: 50%; margin-left: -1px;
+        }
+        .timeline-item {
+            padding: 10px 40px; position: relative; background-color: inherit; width: 50%;
+        }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+        .timeline-item::after {
+            content: ''; position: absolute; width: 16px; height: 16px; right: -8px;
+            background-color: var(--bg-color); border: 4px solid var(--primary-color);
+            top: 15px; border-radius: 50%; z-index: 1;
+        }
+        .timeline-item.right::after { left: -8px; }
+        .timeline-content {
+            padding: 20px; background-color: var(--card-bg); position: relative; border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .timeline-content h3 { color: var(--primary-color); margin-bottom: 5px; }
+        .timeline-content h4 { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; font-weight: 400;}
+        .timeline-content p { font-size: 0.9rem; }
 
         /* Footer */
-        footer { text-align: center; padding: 30px; background-color: var(--card-bg); color: #94a3b8; font-size: 0.9rem; }
+        footer { text-align: center; padding: 40px; background-color: var(--card-bg); color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);}
 
-        /* Responsive para celulares */
+        /* Responsive */
         @media (max-width: 768px) {
             nav { flex-direction: column; gap: 15px; padding: 15px; }
+            nav ul { gap: 15px; font-size: 0.9rem;}
             .hero h1 { font-size: 2.5rem; }
-            section { padding: 120px 5% 50px 5%; }
+            section { padding: 140px 5% 50px 5%; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item.right { left: 0%; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 22px; }
         }
     </style>
 </head>
@@ -127,72 +197,137 @@
         <div class="logo">AC.</div>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
         </ul>
     </nav>
 
     <!-- Sección Inicio -->
     <section id="inicio" class="hero">
         <h1>Hola, soy <span>Alejandro Correa</span></h1>
-        <p>Desarrollador apasionado por crear soluciones web funcionales y experiencias de usuario limpias. Construyendo proyectos que resuelven problemas reales.</p>
+        <h2>Ingeniero de Sistemas & Desarrollador Full Stack</h2>
+        <p>Soy un ingeniero de sistemas enfocado en el desarrollo de aplicaciones y soluciones tecnológicas innovadoras. Cuento con sólido conocimiento en programación (Java, JavaScript, PHP) y frameworks modernos (Angular, React, Node.js). Me destaco por mis habilidades de liderazgo, trabajo en equipo y toma de decisiones asertivas.</p>
         
         <div class="social-links">
             <a href="https://github.com/Alejandro-correa10" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:contacto@ejemplo.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:alejandro.corre1047@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades" style="min-height: auto;">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="skills-container">
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">PHP</span>
+            <span class="skill-badge">Angular</span>
+            <span class="skill-badge">React</span>
+            <span class="skill-badge">Node.js</span>
+            <span class="skill-badge">Next.js</span>
+            <span class="skill-badge">HTML5 & CSS3</span>
+            <span class="skill-badge">SQL / MySQL</span>
+            <span class="skill-badge">Oracle Apex</span>
+            <span class="skill-badge">PL/SQL</span>
+            <span class="skill-badge">Inteligencia Artificial</span>
+            <span class="skill-badge">Scrum</span>
+            <span class="skill-badge">Ciberseguridad</span>
         </div>
     </section>
 
     <!-- Sección Proyectos -->
-    <section id="proyectos">
-        <h2>Mis Proyectos</h2>
+    <section id="proyectos" style="min-height: auto;">
+        <h2 class="section-title">Proyectos Destacados</h2>
         
         <div class="projects-grid">
             
-            <!-- ========================================== -->
-            <!-- COPIA ESTE BLOQUE PARA AGREGAR UN PROYECTO -->
-            <!-- ========================================== -->
+            <!-- Proyecto 1 -->
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=Proyecto+1" alt="Proyecto 1" class="project-img">
+                <div class="project-img"><i class="fas fa-robot"></i></div>
                 <div class="project-info">
-                    <h3>Nombre del Proyecto 1</h3>
-                    <p>Una breve descripción de qué hace este proyecto, qué problema resuelve y qué tecnologías usaste.</p>
+                    <h3>DOLA - Escritura Inclusiva</h3>
+                    <p>Inteligencia Artificial desarrollada en equipo que detecta sesgos de género en textos, promoviendo una comunicación más inclusiva y equitativa.</p>
                     <div class="project-links">
-                        <a href="https://tu-dominio-proyecto1.com" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
-                        <a href="https://github.com/Alejandro-correa10/repo1" target="_blank"><i class="fab fa-github"></i> Código</a>
-                    </div>
-                </div>
-            </div>
-            <!-- ========================================== -->
-            
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x200/1e293b/38bdf8?text=Proyecto+2" alt="Proyecto 2" class="project-img">
-                <div class="project-info">
-                    <h3>Nombre del Proyecto 2</h3>
-                    <p>Descripción del segundo proyecto. Destaca las funcionalidades clave y el stack tecnológico empleado.</p>
-                    <div class="project-links">
-                        <a href="https://tu-dominio-proyecto2.com" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
-                        <a href="https://github.com/Alejandro-correa10/repo2" target="_blank"><i class="fab fa-github"></i> Código</a>
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="https://github.com/Alejandro-correa10" target="_blank" class="github-btn"><i class="fab fa-github"></i> Código</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Agrega más bloques <div class="project-card"> aquí abajo -->
+            <!-- Proyecto 2 -->
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="project-info">
+                    <h3>Sistema de Monitorías Académicas</h3>
+                    <p>Aplicación web para la gestión y asignación de estudiantes y monitores. Incluye módulos de registro, control de asistencia y generación de reportes (PHP, JS, MySQL, Angular).</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="https://github.com/Alejandro-correa10" target="_blank" class="github-btn"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- COPIA ESTE BLOQUE PARA AGREGAR MÁS PROYECTOS -->
+            <!-- ========================================== -->
+            <!--
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-code"></i></div>
+                <div class="project-info">
+                    <h3>Nombre de tu Nuevo Proyecto</h3>
+                    <p>Descripción de qué hace el proyecto y qué tecnologías usaste.</p>
+                    <div class="project-links">
+                        <a href="URL_DE_TU_DOMINIO" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="URL_DE_TU_REPO" target="_blank" class="github-btn"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+            -->
+            <!-- ========================================== -->
 
         </div>
     </section>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" style="min-height: auto; text-align: center;">
-        <h2>Contacto</h2>
-        <p style="margin-bottom: 20px;">¿Tienes un proyecto en mente o quieres colaborar? ¡Hablemos!</p>
-        <a href="mailto:contacto@ejemplo.com" style="background-color: var(--primary-color); color: var(--bg-color); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">Enviar un correo</a>
+    <!-- Sección Experiencia y Educación -->
+    <section id="experiencia" style="min-height: auto;">
+        <h2 class="section-title">Trayectoria</h2>
+        
+        <div class="timeline">
+            <!-- Experiencia -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Programador en Prácticas</h3>
+                    <h4>Universidad Simón Bolívar | 2025</h4>
+                    <p>Diseñé y desarrollé una aplicación de monitorías académicas. Implementé módulos de registro con PHP, JavaScript, MySQL y Angular. Logré optimizar el proceso académico reduciendo tiempos de gestión.</p>
+                </div>
+            </div>
+            
+            <!-- Educación -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Ingeniería de Sistemas</h3>
+                    <h4>Universidad Simón Bolívar | 2025-1 (10mo Semestre)</h4>
+                    <p>Estudiante activo enfocado en desarrollo de software, bases de datos y soluciones tecnológicas innovadoras.</p>
+                </div>
+            </div>
+
+            <!-- Inglés -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Estudios de Inglés</h3>
+                    <h4>Universidad Simón Bolívar | 2020 - 2023</h4>
+                    <p>Formación en idioma extranjero (6 semestres completados).</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Alejandro Correa. Desplegado con GitHub Pages.</p>
+        <p>&copy; 2024 Alejandro Correa. Diseñado y desplegado con GitHub Pages.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Barranquilla, Colombia 🇨🇴</p>
     </footer>
 
 </body>
